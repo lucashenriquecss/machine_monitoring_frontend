@@ -1,0 +1,9 @@
+<button mat-raised-button color="primary" (click)="goBack()">Voltar</button>
+<div *ngIf="machine">
+    <h2>Detalhes da Máquina</h2>
+    <p><strong>ID:</strong> {{ machine.id }}</p>
+    <p><strong>Nome:</strong> {{ machine.name }}</p>
+    <p><strong>Status:</strong> {{ machine.status }}</p>
+    
+</div>
+  

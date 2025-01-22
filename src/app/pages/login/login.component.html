@@ -1,0 +1,24 @@
+<div class="parent">
+    <div class="container">
+        <form action="#" [formGroup]="login">
+            <div class="login-header">
+                <h1>Machine Monitoring</h1>
+                <p>Please enter your credentials to login</p>
+            </div>
+            <div class="input-box">
+                <input type="email" name="email" formControlName="email" placeholder="Email">
+                <i class='bx bx-envelope'></i>
+            </div>
+    
+            <div class="input-box">
+                <input type="password" name="password" formControlName="password" placeholder="Password">
+                <i class='bx bx-lock-alt' ></i>
+            </div>
+            
+            <button class="login-button" (click)="onLogin()">Login</button>
+            <div class="register">
+                <p>Don't have an account? <br> <a href="#">Register</a></p>
+            </div>
+        </form>
+    </div>
+</div>
