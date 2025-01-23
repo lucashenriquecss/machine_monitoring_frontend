@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 100vh;    
 }
 
 img{
@@ -20,11 +20,14 @@ img{
     color: black;
     padding: 30px 40px;
     border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-
+    
     background: white;
 }
-
+.container-forms{
+    display: flex;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    flex-direction: row;
+}
 .input-box{
     position: relative;
     width: 100%;
@@ -44,7 +47,10 @@ img{
     font-size: 16px;
     padding: 10px;
 }
-
+  
+  .input-box input.ng-invalid.ng-touched {
+    border-color: red; /* Borda vermelha para erro */
+  }
 .input-box i{
     position: absolute;
     right: 20px;

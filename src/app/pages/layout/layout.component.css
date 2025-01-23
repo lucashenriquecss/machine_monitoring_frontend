@@ -33,7 +33,7 @@ mat-list-item {
 }
 
 mat-list-item:hover {
-  background-color: #3a4e6a;
+  background-color: #727f92;
 }
 
 button[mat-list-item] {

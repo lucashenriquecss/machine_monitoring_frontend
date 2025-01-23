@@ -43,11 +43,15 @@ export class ApiService {
 
   async put<T>(endpoint: string, body: any) {
     const headers = this.createHeaders();
-    return await this.http.put<T>(`${this.baseUrl}/${endpoint}`, body, { headers }).toPromise();
+    return await this.http.put<T>(`${this.baseUrl}/${endpoint}`, body, { headers }).pipe(
+      catchError((error) => throwError(error)) 
+    );
   }
 
-  async delete<T>(endpoint: string) {
+  delete(endpoint: string): Observable<any> {
     const headers = this.createHeaders();
-    return await this.http.delete<T>(`${this.baseUrl}/${endpoint}`, { headers }).toPromise();
+    return this.http.delete<any>(`${this.baseUrl}/${endpoint}`, { headers }).pipe(
+      catchError((error) => throwError(error)) 
+    );
   }
 }

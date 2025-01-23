@@ -1,28 +1,22 @@
 <mat-drawer-container class="example-container">
   <mat-drawer mode="side" opened class="sidenav">
     <mat-toolbar>
-      <img src="" alt="" srcset="">
-      <span>Monitoramentos de maquinas</span>
+      <span>Machine - {{ username }}</span>
     </mat-toolbar>
     
     <mat-nav-list>
-      <a mat-list-item routerLink="/home">
-        <mat-icon>home</mat-icon>
-        Inicio
-      </a>
-      <a mat-list-item routerLink="/profile">
-        <mat-icon>account_circle</mat-icon>
-        Profile
-      </a>   
-      <div class="logout-button">
-        <button mat-list-item (click)="onLogout()">
-          <mat-icon>logout</mat-icon>
-          Logout
-        </button>
-      </div>
-    </mat-nav-list>
-  </mat-drawer>
 
+      <button mat-raised-button color="primary" (click)="onLogout()">
+        <mat-icon>logout</mat-icon>
+        Sair
+    </button>
+    </mat-nav-list>
+
+    <div class="logout-button">
+      
+    </div>
+  </mat-drawer>
+  
   <mat-drawer-content>
     <router-outlet></router-outlet>
   </mat-drawer-content>

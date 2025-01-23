@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
@@ -18,9 +18,15 @@ import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/rou
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css'
 })
-export class LayoutComponent {
+export class LayoutComponent implements OnInit {
   constructor(private router: Router) { }
 
+  username: string | null = 'Guest'; 
+
+  ngOnInit() {
+    const storedName = localStorage.getItem('username');
+    this.username = storedName ? storedName : 'Guest';
+  }
   onLogout() {
     localStorage.clear();
     this.router.navigate(['/login']);
