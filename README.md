@@ -24,6 +24,10 @@ Este projeto é uma interface frontend desenvolvida em Angular para gerenciar m�
      - Nome da máquina.
      - Localização.
      - Status atual.
+    
+4. **Registro e autênticação de usuários**
+   - Inclui informações como:
+     - Tela de login e registro.
 
 ---
 
@@ -44,6 +48,16 @@ Este projeto é uma interface frontend desenvolvida em Angular para gerenciar m�
 - Fornecer uma interface interativa e responsiva para o gerenciamento de máquinas.
 - Permitir que os usuários interajam com os dados da API em tempo real.
 - Criar um fluxo intuitivo para o cadastro e consulta de máquinas.
+
+---
+
+## 🎯 Melhorias futuras do Projeto
+
+- Melhoria visual da aplicação: Tela de login, ajustes de informações de tabelas.
+- Adicionar em um mapa todas as maquinas.
+- Ao iniciar a simulação abrir um modal de monitoramento em tempo real da "saúde" da maquina, mostrando temperatura e RPM
+- Separação de funcionalidades
+
 
 ---
 
@@ -82,8 +96,11 @@ Certifique-se de ter as seguintes ferramentas instaladas:
    npm install
 3. Lembrete
    #Lembrar de configurar o recebimento do websocket na pasta
-
+   #Configurar Url do consumo da api e websocket src/environments/enviroments.ts
+   #Foi deixado um exemplo
+ 
 4 Iniciar serviço
   ```bash
   ng serve
+
 
