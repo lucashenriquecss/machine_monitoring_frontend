@@ -1,23 +1,22 @@
 <mat-drawer-container class="example-container">
   <mat-drawer mode="side" opened class="sidenav">
     <mat-toolbar>
-      <span>Machine - {{ username }}</span>
+      <!-- <span>{{ username }}</span> -->
+      <img src="assets/images/machine-learning.png" alt="" srcset="">
     </mat-toolbar>
-    
-    <mat-nav-list>
 
-      <button mat-raised-button color="primary" (click)="onLogout()">
+    <mat-nav-list>
+      <button mat-icon-button class="nav-button" (click)="onLogout()">
         <mat-icon>logout</mat-icon>
-        Sair
-    </button>
+      </button>
     </mat-nav-list>
 
     <div class="logout-button">
-      
+      <!-- Adicionar mais botões se necessário -->
     </div>
   </mat-drawer>
-  
   <mat-drawer-content>
+    User: <span>{{ username }}</span>
     <router-outlet></router-outlet>
   </mat-drawer-content>
 </mat-drawer-container>

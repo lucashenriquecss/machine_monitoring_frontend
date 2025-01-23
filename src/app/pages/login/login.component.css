@@ -49,7 +49,7 @@ img{
 }
   
   .input-box input.ng-invalid.ng-touched {
-    border-color: red; /* Borda vermelha para erro */
+    border-color: red;
   }
 .input-box i{
     position: absolute;

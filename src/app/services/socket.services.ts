@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Socket, io } from 'socket.io-client';
 import { Observable } from 'rxjs';
-// import { environment } from '../environments/environment';
+import { environment } from '../environments/environments';
 
 @Injectable({
     providedIn: 'root'
@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
     private socket: Socket;
   
     constructor() {
-      this.socket = io('http://localhost:3000', {
+      this.socket = io(environment.webSocketUrl, {
         transports: ['websocket', 'polling'],
       });
     }
@@ -26,11 +26,8 @@ import { Observable } from 'rxjs';
   
     monitorMachine(machineId: string) {
       this.socket.emit('monitor-machine', machineId);
-      console.log(this.socket.emit('monitor-machine', machineId))
       return new Observable(observer => {
-        console.log("observe monitor"+observer+ ' ' + machineId)
         this.socket.on(`machine-${machineId}`, (data) => {
-          console.log("final monitor"+JSON.stringify(data))
           observer.next(data);
         });
       });

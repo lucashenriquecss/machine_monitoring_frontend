@@ -155,21 +155,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     const filterValue = (this.statusFilter.value ?? '').trim().toLowerCase();
     this.dataSource.filter = filterValue;
   }
-  viewDetails(machineId: string): void {
-    this.router.navigate(['/machine', machineId]);
-  }
-  addMachine(machineData: any): void {
-    this.apiService.post('machine', machineData).subscribe({
-      next: (response) => {
-        alert('Máquina adicionada com sucesso!');
-        this.ngOnInit()
-      },
-      error: (err) => {
-        console.error(err);
-        alert('Erro ao adicionar a máquina.');
-      }
-    });
-  }
   openAddMachineModal(): void {
     const dialogRef = this.dialog.open(AddMachineModalComponent, {
       width: '400px',
@@ -190,4 +175,36 @@ export class HomeComponent implements OnInit, OnDestroy {
       }
     });
   }
+
+
+
+  viewDetails(machineId: string): void {
+    this.router.navigate(['/machine', machineId]);
+  }
+  addMachine(machineData: any): void {
+    this.apiService.post('machine', machineData).subscribe({
+      next: (response) => {
+        alert('Máquina adicionada com sucesso!');
+        this.ngOnInit()
+      },
+      error: (err) => {
+        console.error(err);
+        alert('Erro ao adicionar a máquina.');
+      }
+    });
+  }
+
+  deleteMachine(machineId: string): void {
+    this.apiService.delete(`machine/${machineId}`).subscribe({
+      next: (response) => {
+        alert('Máquina Deletada com sucesso!');
+        this.ngOnInit()
+      },
+      error: (err) => {
+        console.error(err);
+        alert('Erro ao adicionar a máquina.');
+      }
+    });
+  }
+ 
 }
