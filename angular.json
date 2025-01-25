@@ -29,9 +29,17 @@
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/font-awesome/css/font-awesome.min.css",
               "node_modules/leaflet/dist/leaflet.css",
+              "src/assets/css/soft-ui-dashboard.css",
               "src/styles.css"
             ],
-            "scripts": ["node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"]
+            "scripts": [
+              "./node_modules/@popperjs/core/dist/umd/popper.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "src/assets/js/plugins/perfect-scrollbar.min.js",
+              "src/assets/js/plugins/smooth-scrollbar.min.js",
+              "src/assets/js/plugins/chartjs.min.js",
+              "src/assets/js/soft-ui-dashboard.min.js"
+            ]
           },
           "configurations": {
             "production": {
