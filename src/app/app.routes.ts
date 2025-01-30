@@ -7,6 +7,7 @@ import { MachineComponent } from './pages/details/machine/machine.component';
 import { MachinesComponent } from './pages/machines/machines.component';
 import { SolicitationsComponent } from './pages/solicitations/solicitations.component';
 import { OperatorsComponent } from './pages/operators/operators.component';
+import { AuthGuard } from './auth/auth.guard';
 
 export const routes: Routes = [
 
@@ -16,7 +17,7 @@ export const routes: Routes = [
         pathMatch: 'full'
     },
     {
-        path: '',
+        path: 'sign',
         component: SignComponent
     },
     {
@@ -28,22 +29,13 @@ export const routes: Routes = [
                 component: HomeComponent,
                 title: 'Home'
             },
-            {
-                path: 'profile',
-                component: ProfileComponent,
-                title: 'Profile'
-            },
-            {
-                path: 'machine',
-                component: MachineComponent,
-                title: 'Machine'
-            },
+            { path: 'profile/:id', component: ProfileComponent },
+            { path: 'machine/:id', component: MachineComponent },
             {
                 path: 'machines',
                 component: MachinesComponent,
                 title: 'Machines'
             },
-
             {
                 path: 'solicitations',
                 component: SolicitationsComponent,
@@ -56,6 +48,7 @@ export const routes: Routes = [
                 title: 'Operators'
             }
         ],
+        canActivate: [AuthGuard]
     },
 
     { path: '**', redirectTo: '/sign' }

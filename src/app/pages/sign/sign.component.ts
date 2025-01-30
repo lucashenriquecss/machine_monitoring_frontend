@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign',
@@ -10,6 +11,8 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 })
 export class SignComponent {
   signIn = true;
+
+  constructor(private router: Router) { }
 
   public login = new FormGroup(
     {
@@ -33,14 +36,25 @@ export class SignComponent {
   onSignIn() {
     const email = this.login.get('email')?.value;
     const password = this.login.get('password')?.value;
-    console.log(email + ' ' + password);
+
+    if (email === 'lucas@gmail.com' && password === 'lucas123') {
+
+      localStorage.setItem('accessToken', "teste");
+      localStorage.setItem('idUser', "teste");
+      localStorage.setItem('refreshToken', "teste");
+      localStorage.setItem('role', "teste");
+      localStorage.setItem('username', "teste");
+
+      this.router.navigate(['/home']);
+    }
+
   }
 
   onSignUp() {
     const email = this.register.get('email')?.value;
     const password = this.register.get('password')?.value;
     const name = this.register.get('name')?.value;
-    
+
     console.log(email + ' ' + password + ' ' + name);
   }
 }

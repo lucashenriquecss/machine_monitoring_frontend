@@ -15,4 +15,9 @@ import { NavbarComponent } from '../../components/navbar/navbar.component';
 })
 export class LayoutComponent {
   constructor(private router: Router) { }
+
+  onLogout() {
+    localStorage.clear();
+    this.router.navigate(['/sign']);
+  }
 }

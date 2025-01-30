@@ -54,7 +54,7 @@
                       <span class="text-secondary text-xs font-weight-bold">{{ machine.date }}</span>
                     </td>
                     <td class="align-middle">
-                        <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn btn-link text-secondary mb-0" (click)="viewDetails(machine.id)" aria-haspopup="true" aria-expanded="false">
                           <i class="fa fa-ellipsis-v text-xs"></i>
                         </button>
                       </td>

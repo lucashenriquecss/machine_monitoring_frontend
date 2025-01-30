@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-operators',
@@ -7,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './operators.component.css'
 })
 export class OperatorsComponent {
+  constructor(
+    private router: Router
+  ) { }
 
+  viewDetails(machineId: string): void {
+    this.router.navigate(['/profile', machineId]);
+  }
 }
