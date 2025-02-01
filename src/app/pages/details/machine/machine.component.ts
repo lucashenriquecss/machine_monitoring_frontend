@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
+import 'leaflet-routing-machine';
+
 
 @Component({
   selector: 'app-machine',
@@ -82,9 +84,28 @@ export class MachineComponent implements OnInit {
       attribution: '© OpenStreetMap contributors'
     }).addTo(this.map);
 
-    L.marker([latitude, longitude]).addTo(this.map);
+    L.Routing.control({
+      router: L.Routing.osrmv1({
+          serviceUrl: `http://router.project-osrm.org/route/v1/`
+      }),
+      showAlternatives: true,
+    
+      // lineOptions: {styles: [{color: '#242c81', weight: 7}]},
+      fitSelectedRoutes: false,
+      // altLineOptions: {styles: [{color: '#ed6852', weight: 7}]},
+      show: false,
+      routeWhileDragging: true,
+      waypoints: [
+          L.latLng(latitude, longitude),
+          L.latLng(-9.624101148891034, -35.75283875880391),
+          L.latLng(-9.650263253998798, -35.733421146970045)
+      ]
+  }).addTo(this.map);
+    // L.marker([latitude, longitude]).addTo(this.map);
   }
 
+
+  
   onEdit() { }
   onRemove() { }
 }
