@@ -1,16 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-machines',
-  imports: [CommonModule],
+  imports: [CommonModule,ReactiveFormsModule],
   templateUrl: './machines.component.html',
   styleUrl: './machines.component.css'
 })
 export class MachinesComponent {
+  isToggleSimulation = false;
+
   machines = [{
-    id:"a44a44a4555",
+    id:"a44a44a4556",
     name: "NMM255F",
     serie: "5555662144562",
     location: "Deposito B",
@@ -65,8 +68,11 @@ export class MachinesComponent {
   constructor(
     private router: Router
   ) { }
-
+  toggleSimulator() {
+    this.isToggleSimulation = !this.isToggleSimulation;
+  }
   viewDetails(machineId: string): void {
     this.router.navigate(['/machine', machineId]);
   }
+
 }
