@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import * as L from 'leaflet';
 
 @Component({
   selector: 'app-machines',
@@ -9,7 +10,9 @@ import { Router } from '@angular/router';
   templateUrl: './machines.component.html',
   styleUrl: './machines.component.css'
 })
-export class MachinesComponent {
+export class MachinesComponent implements OnInit {
+  private map!: L.Map;
+
   isToggleSimulation = false;
 
   machines = [{
@@ -68,6 +71,40 @@ export class MachinesComponent {
   constructor(
     private router: Router
   ) { }
+
+  ngOnInit(): void {
+    this.initMap()
+  }
+
+  private initMap(): void {
+    this.map = L.map('map').setView([-9.624101148891034, -35.75283875880391], 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(this.map);
+
+  //   L.Routing.control({
+  //     router: L.Routing.osrmv1({
+  //         serviceUrl: `http://router.project-osrm.org/route/v1/`
+  //     }),
+  //     showAlternatives: true,
+    
+  //     // lineOptions: {styles: [{color: '#242c81', weight: 7}]},
+  //     fitSelectedRoutes: false,
+  //     // altLineOptions: {styles: [{color: '#ed6852', weight: 7}]},
+  //     show: false,
+  //     routeWhileDragging: true,
+  //     waypoints: [
+  //         L.latLng(-9.624101148891034, -35.75283875880391),
+  //         L.latLng(-9.624101148891034, -35.75283875880391),
+  //         L.latLng(-9.650263253998798, -35.733421146970045)
+  //     ]
+  // }).addTo(this.map);
+    L.marker([-9.624101148891034, -35.75283875880391]).addTo(this.map);
+    L.marker([-9.650263253998798, -35.733421146970045]).addTo(this.map);
+
+  }
+
   toggleSimulator() {
     this.isToggleSimulation = !this.isToggleSimulation;
   }

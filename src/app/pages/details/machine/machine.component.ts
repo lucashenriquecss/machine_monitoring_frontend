@@ -97,8 +97,6 @@ export class MachineComponent implements OnInit {
       routeWhileDragging: true,
       waypoints: [
           L.latLng(latitude, longitude),
-          L.latLng(-9.624101148891034, -35.75283875880391),
-          L.latLng(-9.650263253998798, -35.733421146970045)
       ]
   }).addTo(this.map);
     // L.marker([latitude, longitude]).addTo(this.map);

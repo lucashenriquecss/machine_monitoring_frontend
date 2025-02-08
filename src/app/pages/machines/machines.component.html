@@ -1,5 +1,27 @@
 <div class="container-fluid py-4">
   <div class="row">
+    <div class="col-lg-6 col-12 mt-4 mt-lg-0">
+      <div class="card mb-4">
+        <div class="card-header pb-0">
+          <h6>Machines</h6>
+        </div>
+        <div class="card-body px-0 pt-0 pb-2">
+          <div class="map-container">
+            <div id="map"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 col-12 mt-4 mt-lg-0">
+      <div class="card mb-4">
+        <div class="card-header pb-0">
+          <h6>Machines</h6>
+        </div>
+        <div class="card-body px-0 pt-0 pb-2">
+        
+        </div>
+      </div>
+    </div>
     <div class="col-12">
       <div class="card mb-4">
         <div class="card-header pb-0">
@@ -60,13 +82,15 @@
                       aria-expanded="false">
                       <i class="fa fa-ellipsis-v text-xs"></i>
                     </a>
-                    <ul  class="dropdown-menu px-2 py-3" aria-labelledby="dropdownUsers1">
+                    <ul class="dropdown-menu px-2 py-3" aria-labelledby="dropdownUsers1">
                       <li><a class="dropdown-item border-radius-md" href="javascript:;"
                           (click)="viewDetails(machine.id)">Detail</a></li>
-                      <li><a *ngIf="!isToggleSimulation; else simulator" class="dropdown-item border-radius-md" href="javascript:;" (click)="toggleSimulator()">Start Simulator</a></li>
+                      <li><a *ngIf="!isToggleSimulation; else simulator" class="dropdown-item border-radius-md"
+                          href="javascript:;" (click)="toggleSimulator()">Start Simulator</a></li>
                       <ng-template #simulator>
                         <li><a class="dropdown-item border-radius-md" href="javascript:;">View Simulator</a></li>
-                        <li><a class="dropdown-item border-radius-md" href="javascript:;" (click)="toggleSimulator()">Stop Simulator</a></li>
+                        <li><a class="dropdown-item border-radius-md" href="javascript:;"
+                            (click)="toggleSimulator()">Stop Simulator</a></li>
                       </ng-template>
                     </ul>
                   </td>
