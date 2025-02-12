@@ -15,13 +15,30 @@
                                 <form role="form" [formGroup]="login">
                                     <label>Email</label>
                                     <div class="mb-3">
-                                        <input type="email" name="email" formControlName="email" class="form-control" placeholder="Email"
-                                            aria-label="Email" aria-describedby="email-addon">
+                                        <input type="email" name="email" formControlName="email" class="form-control"
+                                            placeholder="Email" aria-label="Email" aria-describedby="email-addon"
+                                            [class.is-invalid]="login.get('email')?.invalid && login.get('email')?.touched">
+                                        <div *ngIf="login.get('email')?.invalid && login.get('email')?.touched"
+                                            class="invalid-feedback">
+                                            <span *ngIf="login.get('email')?.errors?.['required']">Email is
+                                                required.</span>
+                                            <span *ngIf="login.get('email')?.errors?.['email']">Invalid email
+                                                format.</span>
+                                        </div>
                                     </div>
                                     <label>Password</label>
                                     <div class="mb-3">
-                                        <input type="password" name="password" formControlName="password" class="form-control" placeholder="Password"
-                                            aria-label="Password" aria-describedby="password-addon">
+                                        <input type="password" name="password" required formControlName="password"
+                                            class="form-control" placeholder="Password" aria-label="Password"
+                                            aria-describedby="password-addon"
+                                            [class.is-invalid]="login.get('password')?.invalid && login.get('password')?.touched">
+                                        <div *ngIf="login.get('password')?.invalid && login.get('password')?.touched"
+                                            class="invalid-feedback">
+                                            <span *ngIf="login.get('password')?.errors?.['required']">password is
+                                                required.</span>
+                                            <span *ngIf="login.get('password')?.errors?.['password']">Invalid password
+                                                format.</span>
+                                        </div>
                                     </div>
                                     <div class="form-check form-switch">
                                         <input class="form-check-input" type="checkbox" id="rememberMe" checked="">
@@ -37,16 +54,45 @@
                                 <div class="card-body">
                                     <form role="form text-left" [formGroup]="register">
                                         <div class="mb-3">
-                                            <input type="text" name="name" formControlName="name" class="form-control" placeholder="Name" aria-label="Name"
-                                                aria-describedby="email-addon">
+                                            <input type="text" name="name" formControlName="name" class="form-control"
+                                                placeholder="Name" aria-label="Name" aria-describedby="email-addon"
+                                                [class.is-invalid]="register.get('name')?.invalid && register.get('name')?.touched">
+                                            <div *ngIf="register.get('name')?.invalid && register.get('name')?.touched"
+                                                class="invalid-feedback">
+                                                <span *ngIf="register.get('name')?.errors?.['required']">Name is
+                                                    required.</span>
+                                                <span *ngIf="register.get('name')?.errors?.['minlength']">Name must be
+                                                    at least 3 characters.</span>
+                                                <span *ngIf="register.get('name')?.errors?.['maxlength']">Name cannot
+                                                    exceed 10 characters.</span>
+                                            </div>
                                         </div>
                                         <div class="mb-3">
-                                            <input type="email" name="email" formControlName="email" class="form-control" placeholder="Email"
-                                                aria-label="Email" aria-describedby="email-addon">
+                                            <input type="email" name="email" formControlName="email"
+                                                class="form-control" placeholder="Email" aria-label="Email"
+                                                aria-describedby="email-addon"
+                                                [class.is-invalid]="register.get('email')?.invalid && register.get('email')?.touched">
+                                            <div *ngIf="register.get('email')?.invalid && register.get('email')?.touched"
+                                                class="invalid-feedback">
+                                                <span *ngIf="register.get('email')?.errors?.['required']">Email is
+                                                    required.</span>
+                                                <span *ngIf="register.get('email')?.errors?.['email']">Invalid email
+                                                    format.</span>
+                                            </div>
                                         </div>
                                         <div class="mb-3">
-                                            <input type="password" name="password" formControlName="password" class="form-control" placeholder="Password"
-                                                aria-label="Password" aria-describedby="password-addon">
+                                            <input type="password" name="password" formControlName="password"
+                                                class="form-control" placeholder="Password" aria-label="Password"
+                                                aria-describedby="password-addon"
+                                                [class.is-invalid]="register.get('password')?.invalid && register.get('password')?.touched">
+
+                                            <div *ngIf="register.get('password')?.invalid && register.get('password')?.touched"
+                                                class="invalid-feedback">
+                                                <span *ngIf="register.get('password')?.errors?.['required']">Password is
+                                                    required.</span>
+                                                <span *ngIf="register.get('password')?.errors?.['minlength']">Password
+                                                    must be at least 3 characters.</span>
+                                            </div>
                                         </div>
                                         <!-- <div class="form-check form-check-info text-left">
                                             <input class="form-check-input" type="checkbox" value=""
@@ -57,7 +103,8 @@
                                             </label>
                                         </div> -->
                                         <div class="text-center">
-                                            <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2" (click)="onSignUp()">Sign up</button>
+                                            <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2"
+                                                (click)="onSignUp()">Sign up</button>
                                         </div>
                                     </form>
                                 </div>
@@ -74,7 +121,7 @@
                     <div class="col-md-6">
                         <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
                             <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6"
-                                style="background-image:url('../assets/img/curved-images/curved6.jpg')"></div>
+                                style="background-image:url('../assets/img/agro.jpg')"></div>
                         </div>
                     </div>
                 </div>

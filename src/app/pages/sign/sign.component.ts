@@ -16,16 +16,16 @@ export class SignComponent {
 
   public login = new FormGroup(
     {
-      email: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required])
     }
   );
 
   public register = new FormGroup(
     {
-      name: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required])
+      name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required, Validators.minLength(3)])
     }
   );
 
