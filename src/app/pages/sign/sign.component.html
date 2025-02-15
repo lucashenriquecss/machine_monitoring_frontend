@@ -6,14 +6,13 @@
                     <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
                         <div class="card card-plain mt-8">
                             <div class="card-header pb-0 text-left bg-transparent">
-                                <h3 class="font-weight-bolder text-info text-gradient">{{ signIn ? 'Welcome Back' :
-                                    'Register' }}</h3>
-                                <p class="mb-0">{{ signIn ? 'Enter your email and password to sign in' : 'Register your
-                                    email and password to sign in' }}</p>
+                                <h3 class="font-weight-bolder text-info text-gradient">{{ signIn ? 'Bem-vindo(a)' :
+                                    'Cadastrar' }}</h3>
+                                <p class="mb-0">{{ signIn ? 'Digite seu e-mail e senha para entrar' : 'Registre um e-mail e uma senha' }}</p>
                             </div>
                             <div *ngIf="signIn; else singup" class="card-body">
                                 <form role="form" [formGroup]="login">
-                                    <label>Email</label>
+                                    <label>E-mail</label>
                                     <div class="mb-3">
                                         <input type="email" name="email" formControlName="email" class="form-control"
                                             placeholder="Email" aria-label="Email" aria-describedby="email-addon"
@@ -26,7 +25,7 @@
                                                 format.</span>
                                         </div>
                                     </div>
-                                    <label>Password</label>
+                                    <label>Senha</label>
                                     <div class="mb-3">
                                         <input type="password" name="password" required formControlName="password"
                                             class="form-control" placeholder="Password" aria-label="Password"
@@ -46,7 +45,7 @@
                                     </div>
                                     <div class="text-center">
                                         <button type="button" class="btn bg-gradient-info w-100 mt-4 mb-0"
-                                            (click)="onSignIn()">Sign in</button>
+                                            (click)="onSignIn()">Entrar</button>
                                     </div>
                                 </form>
                             </div>
@@ -55,7 +54,7 @@
                                     <form role="form text-left" [formGroup]="register">
                                         <div class="mb-3">
                                             <input type="text" name="name" formControlName="name" class="form-control"
-                                                placeholder="Name" aria-label="Name" aria-describedby="email-addon"
+                                                placeholder="Nome" aria-label="Name" aria-describedby="email-addon"
                                                 [class.is-invalid]="register.get('name')?.invalid && register.get('name')?.touched">
                                             <div *ngIf="register.get('name')?.invalid && register.get('name')?.touched"
                                                 class="invalid-feedback">
@@ -69,7 +68,7 @@
                                         </div>
                                         <div class="mb-3">
                                             <input type="email" name="email" formControlName="email"
-                                                class="form-control" placeholder="Email" aria-label="Email"
+                                                class="form-control" placeholder="E-mail" aria-label="Email"
                                                 aria-describedby="email-addon"
                                                 [class.is-invalid]="register.get('email')?.invalid && register.get('email')?.touched">
                                             <div *ngIf="register.get('email')?.invalid && register.get('email')?.touched"
@@ -82,7 +81,7 @@
                                         </div>
                                         <div class="mb-3">
                                             <input type="password" name="password" formControlName="password"
-                                                class="form-control" placeholder="Password" aria-label="Password"
+                                                class="form-control" placeholder="Senha" aria-label="Password"
                                                 aria-describedby="password-addon"
                                                 [class.is-invalid]="register.get('password')?.invalid && register.get('password')?.touched">
 
@@ -104,16 +103,16 @@
                                         </div> -->
                                         <div class="text-center">
                                             <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2"
-                                                (click)="onSignUp()">Sign up</button>
+                                                (click)="onSignUp()">Cadastrar</button>
                                         </div>
                                     </form>
                                 </div>
                             </ng-template>
                             <div class="card-footer text-center pt-0 px-lg-2 px-1">
                                 <p class="mb-4 text-sm mx-auto">
-                                    {{ signIn ? 'Don t have an account' : 'have an account?' }}
+                                    {{ signIn ? 'Não possui uma conta' : 'Possui uma conta?' }}
                                     <a href="javascript:;" class="text-info text-gradient font-weight-bold"
-                                        (click)="toggleSignIn()">{{ signIn ? 'Sing Up' : 'Sing In' }}</a>
+                                        (click)="toggleSignIn()">{{ signIn ? 'Criar' : 'Entrar' }}</a>
                                 </p>
                             </div>
                         </div>

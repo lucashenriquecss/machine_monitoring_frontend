@@ -33,10 +33,10 @@ export class HomeComponent implements OnInit {
     this.chartBar = new Chart('canvas', {
       type: 'bar',
       data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
         datasets: [
           {
-            label: '# of Votes',
+            label: '# Meses',
             data: [12, 19, 3, 5, 2, 3],
             borderWidth: 1,
           },
