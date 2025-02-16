@@ -16,7 +16,7 @@ export class MachineComponent implements OnInit {
   machine = {
     name: "NMM255F",
     serie: "5555662144562",
-    description: "Hi, Im Alec Thompson, Decisions: If you cant decide, the answer is no. If two equally difficult paths, choose the one more painful in the short term (pain avoidance is creating an illusion of equality.",
+    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     location: "Deposito B",
     latitude: -9.593211781283628,
     longitude: -35.75511754633586,
